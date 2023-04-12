@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import TweetItem from '../components/TweetItem';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function Tweets() {
     const [users, setUser] = useState([])
@@ -14,17 +16,12 @@ export default function Tweets() {
     }
 
     return (
-        <>
-            <h1>Here is a tweets from relate topics</h1>
+        <div className="flex flex-wrap justify-center">
             {users.map((user) => {
                 return (
-                    <>
-                        <p>{user.created_at}</p>
-                        <p>{user.text}</p>
-                        <p>{user.hashtags}</p>
-                    </>
+                    <TweetItem key = {uuidv4()} user = {user} />
                 )
             })}
-        </>
+        </div>
     );
 }

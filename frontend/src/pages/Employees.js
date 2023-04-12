@@ -1,5 +1,5 @@
 import '../index.css';
-import Employee from '../components/Employee'
+import Employee from '../components/Employee';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -45,7 +45,7 @@ function Employees() {
           <>
             <div className='flex flex-wrap justify-center'> 
               {employees.map((employee) => {
-                console.log(employee);
+                // console.log(employee);
                 return (
                   <Employee key = {uuidv4()} name = {employee.name} role = {employee.role} img = {employee.img}/>
                 );
