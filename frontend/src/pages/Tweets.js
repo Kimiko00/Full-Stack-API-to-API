@@ -21,6 +21,7 @@ export default function Tweets() {
                     <>
                         <p>{user.created_at}</p>
                         <p>{user.text}</p>
+                        <p>{user.hashtags}</p>
                     </>
                 )
             })}
