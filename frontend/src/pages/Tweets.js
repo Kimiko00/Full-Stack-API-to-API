@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import React from 'react';
 import axios from 'axios';
-import TweetItem from '../components/TweetItem';
 import { v4 as uuidv4 } from 'uuid';
+import { useState, useEffect } from 'react';
+import TweetItem from '../components/TweetItem';
 
 export default function Tweets() {
     const [users, setUser] = useState([])

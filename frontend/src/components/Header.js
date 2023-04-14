@@ -1,13 +1,13 @@
-import { Disclosure } from '@headlessui/react';
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import { NavLink } from 'react-router-dom';
 import React from 'react';
+import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Disclosure } from '@headlessui/react';
+import { NavLink } from 'react-router-dom';
 
 const navigation = [
   { name: 'Home', href: '/Home'},
   { name: 'Employees', href: '/Employees'},
-  { name: 'tweets', href: '/Tweets'},
-  { name: 'Stack', href: '/Stack'},
+  { name: 'Tweets', href: '/Tweets'},
+  { name: 'Nist', href: '/Nist'},
 ]
 
 export default function Example(props) {
