@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 
 from api.nist import NvdAPI
@@ -37,7 +37,8 @@ def get_stack():
 
 @app.route('/api/nist', methods=['GET'])
 def get_nist():
-    cve = nist.fetch_cves()
+    query = request.args.get('q')
+    cve = nist.fetch_cves(query)
     return jsonify(cve)
 
 if __name__ == '__main__':
