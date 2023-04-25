@@ -1,11 +1,8 @@
-const axios = require("axios");
-const express = require("express");
+const nistApi = require("../api/nist.api");
 
-async function NIST({ query }, limit, page) {
-  const y = await axios
-    .get(
-      `https://services.nvd.nist.gov/rest/json/cves/2.0?keywordSearch=${query}&resultsPerPage=${limit}&startIndex=${page}`
-    )
+async function NIST({ query, limit, page }) {
+  const y = await nistApi
+    .get(`?keywordSearch=${query}&resultsPerPage=${limit}&startIndex=${page}`)
     .then((res) => {
       return res.data;
     });

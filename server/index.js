@@ -1,5 +1,6 @@
 const express = require("express");
-const data = require("./api/nist.api");
+const data = require("./routes/nist.routes");
+const stack = require("./routes/stack.routes");
 
 app = express();
 
@@ -10,6 +11,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/nist", data);
+
+app.use("/stack", stack);
 
 app.listen(5000, () => {
   console.log("app running on port 5000");
