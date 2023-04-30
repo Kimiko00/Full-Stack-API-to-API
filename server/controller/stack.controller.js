@@ -1,9 +1,11 @@
 const stackApi = require("../api/stack.api");
 
-async function STACK({ search }) {
-  const z = await stackApi.get(`&intitle=${search}`).then((res) => {
-    return res.data;
-  });
+async function STACK({ query }) {
+  const z = await stackApi
+    .get(`?order=desc&sort=activity&q=${query}&site=stackoverflow`)
+    .then((res) => {
+      return res.data;
+    });
   return z;
 }
 

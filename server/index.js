@@ -1,6 +1,7 @@
 const express = require("express");
 const data = require("./routes/nist.routes");
 const stack = require("./routes/stack.routes");
+const tweet = require("./routes/tweet.routes");
 
 app = express();
 
@@ -14,6 +15,8 @@ app.use("/nist", data);
 
 app.use("/stack", stack);
 
-app.listen(5000, () => {
+app.use("/tweet", tweet);
+
+app.listen(80, () => {
   console.log("app running on port 5000");
 });
