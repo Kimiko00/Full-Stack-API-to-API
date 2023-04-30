@@ -1,9 +1,9 @@
 const TweetAPI = require("../api/twitter.api");
 const TweetUser = require("../api/twitterUser.api");
 
-async function TWEET() {
+async function TWEET({ query, limit }) {
   const n = await TweetAPI.get(
-    `/2/tweets/search/recent?query=gundam&max_results=10&tweet.fields=author_id&expansions=attachments.media_keys&media.fields=url`
+    `/2/tweets/search/recent?query=${query}&max_results=${limit}&tweet.fields=author_id&expansions=attachments.media_keys&media.fields=url`
   )
     .then((res) => {
       // loop kedalam semua data di include.media

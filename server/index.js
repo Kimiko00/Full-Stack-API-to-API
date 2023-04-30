@@ -17,6 +17,6 @@ app.use("/stack", stack);
 
 app.use("/tweet", tweet);
 
-app.listen(80, () => {
+app.listen(5000, () => {
   console.log("app running on port 5000");
 });
