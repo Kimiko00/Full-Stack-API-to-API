@@ -7,7 +7,7 @@ router.get("/data", async (req, res) => {
   const query = req.query;
 
   const stackData = await m(query);
-  res.send(stackData);
+  res.json(stackData);
 });
 
 module.exports = router;
