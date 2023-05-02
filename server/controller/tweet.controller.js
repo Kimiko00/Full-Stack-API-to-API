@@ -9,13 +9,14 @@ async function TWEET({ query, limit }) {
       // loop kedalam semua data di include.media
       // kemudian simpan sebagai dict baru
       var includeMap = {};
-      var includeLoop =
-        res.data.includes.media.length > 0
+      var includeLoop = res.data.includes
+        ? res.data.includes.media.length > 0
           ? res.data.includes.media.forEach((incl) => {
               if (!incl.hasOwnProperty(incl.media_key))
                 includeMap[incl.media_key] = incl;
             })
-          : "";
+          : ""
+        : " ";
       console.log("include map: ", includeMap);
 
       // checking by the media_keys

@@ -1,9 +1,12 @@
+const cors = require("cors");
 const express = require("express");
 const data = require("./routes/nist.routes");
 const stack = require("./routes/stack.routes");
 const tweet = require("./routes/tweet.routes");
 
 app = express();
+
+app.use(cors());
 
 app.use(express.json());
 

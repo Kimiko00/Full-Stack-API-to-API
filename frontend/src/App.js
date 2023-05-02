@@ -10,15 +10,15 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom';
 function App() {
   return (
     <BrowserRouter>
-      <Header>
-        <Routes>
-          <Route path="/home" element={<Home />} />
-          <Route path="/employees" element={<Employees />} />
-          <Route path="/tweets" element={<Tweets />} />
-          <Route path="/nist" element={<Nist />} />
-        </Routes>
-      </Header>  
-    </BrowserRouter>
+        <Header>
+          <Routes>
+            <Route path="/home" element={<Home />} />
+            <Route path="/employees" element={<Employees />} />
+            <Route path="/tweets" element={<Tweets />} />
+            <Route path="/nist" element={<Nist />} />
+          </Routes>
+        </Header>
+      </BrowserRouter></>
     );
 }
 
