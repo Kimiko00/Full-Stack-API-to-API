@@ -6,7 +6,10 @@ async function STACK({ query }) {
     .then((res) => {
       return res.data;
     });
-  return z;
+  var j = z.items.map((x) => {
+    return x;
+  });
+  return j;
 }
 
 module.exports = STACK;
