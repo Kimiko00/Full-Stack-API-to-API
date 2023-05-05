@@ -1,7 +1,8 @@
 const express = require("express");
+
 const router = express.Router();
 
-const t = require("../controller/tweet.controller");
+const t = require("../controllers/tweet.controller");
 
 router.get("/data", async (req, res) => {
   const query = req.query;

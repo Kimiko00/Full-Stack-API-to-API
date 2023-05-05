@@ -1,7 +1,7 @@
 const express = require("express");
-const y = require("../controller/nist.controller");
-const body = require("../controller/body.controller");
-const x = require("../controller/nist.controller.axios");
+const y = require("../controllers/nist.controller");
+const body = require("../controllers/body.controller");
+const x = require("../controllers/nist.controller.axios");
 
 const router = express.Router();
 
