@@ -1,54 +1,29 @@
-const Sequelize = require("sequelize");
-const db = require("../config/db.config");
+const mongoose = require("mongoose");
 
-const { DataTypes } = Sequelize;
-
-const Users = db.define(
-  "users",
+const userSchema = new mongoose.Schema(
   {
-    uuid: {
-      type: DataTypes.STRING,
-      defaultValue: DataTypes.UUIDV4,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      },
-    },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-        len: [3, 100],
-      },
+    username: {
+      type: String,
+      require: true,
+      unique: true,
     },
     email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-        isEmail: true,
-      },
+      type: String,
+      require: true,
+      unique: true,
     },
     password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      },
+      type: String,
+      require: true,
     },
     role: {
-      type: DataTypes.STRING,
-      defaultValue: "user",
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      },
+      type: String,
+      require: false,
+      // default: "user",
     },
+    avatar: Buffer,
   },
-  {
-    freezeTableName: true,
-  }
+  { timestamps: true }
 );
 
-module.exports = Users;
+module.exports = mongoose.model("User", userSchema);
