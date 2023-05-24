@@ -1,7 +1,8 @@
 const axios = require("axios");
+require("dotenv").config();
 
 const stackApi = axios.create({
-  baseURL: "https://api.stackexchange.com/2.3/search/advanced",
+  baseURL: process.env.STACKOVERFLOW,
 });
 
 module.exports = stackApi;

@@ -2,7 +2,9 @@ const nistApi = require("../api/nist.api");
 
 async function NIST({ query, limit, page }) {
   const y = await nistApi
-    .get(`?keywordSearch=${query}&resultsPerPage=${limit}&startIndex=${page}`)
+    .get(
+      `/rest/json/cves/2.0?keywordSearch=${query}&resultsPerPage=${limit}&startIndex=${page}`
+    )
     .then((res) => {
       return res.data;
     });

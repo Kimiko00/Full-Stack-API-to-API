@@ -1,7 +1,8 @@
 const axios = require("axios");
+require("dotenv").config();
 
 const nistApi = axios.create({
-  baseURL: "https://services.nvd.nist.gov/rest/json/cves/2.0",
+  baseURL: process.env.NIST,
 });
 
 module.exports = nistApi;

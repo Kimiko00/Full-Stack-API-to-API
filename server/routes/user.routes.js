@@ -1,36 +1,47 @@
 const express = require("express");
-
 const {
   createUser,
   userSignIn,
   getDataUser,
   getAllDataUser,
 } = require("../controllers/user.controller");
-
 const {
   validateUserSignUp,
   validateUserSignIn,
   validateUserRoles,
 } = require("../middleware/verifyUser.middleware");
 const verifySignIn = require("../middleware/auth.middleware");
-
 const router = express.Router();
 
-router.post("/create-user", validateUserSignUp, createUser);
+// @desc      User Register
+// @Route     POST /user/register
+// @Access    Public
+router.post("/register", validateUserSignUp, createUser);
 
+// @desc      User Sign In
+// @Route     POST /user/sign-in
+// @Access    Public
 router.post("/sign-in", validateUserSignIn, userSignIn);
 
-router.get("/user", verifySignIn, validateUserRoles("user"), getDataUser);
+// @desc      User Profile
+// @Route     POST /user/profile
+// @Access    Private
+// @Role      User
+router.get("/profile", verifySignIn, validateUserRoles("user"), getDataUser);
 
+// update current log-in user
+router.get("/update-user");
+
+// @desc      All User Profile
+// @Route     POST /user/user-list
+// @Access    Private
+// @Role      admin
 router.get(
-  "/get-all-user",
+  "/user-list",
   verifySignIn,
   validateUserRoles("admin"),
   getAllDataUser
 );
-
-// update current log-in user
-router.get("/update-user");
 
 // update all user data
 router.get("/update-all");

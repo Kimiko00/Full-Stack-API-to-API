@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 
 const validateUserSignUp = async (req, res, next) => {
   try {
-    var { username, email, password, confpassword } = req.body;
+    var { username, email, password } = req.body;
     const existingUser = await User.findOne({ username }, { email });
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const validemail = emailRegex.test(email);
@@ -24,9 +24,9 @@ const validateUserSignUp = async (req, res, next) => {
       return res.send({ msg: "password at least 8 character" });
     }
 
-    if (confpassword !== password) {
-      return res.send({ msg: "password not same!" });
-    }
+    // if (confpassword !== password) {
+    //   return res.send({ msg: "password not same!" });
+    // }
     next();
   } catch (err) {
     console.log("err:", err);
