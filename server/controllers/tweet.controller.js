@@ -1,5 +1,4 @@
 const TweetAPI = require("../api/twitter.api");
-const TweetUser = require("../api/twitterUser.api");
 
 async function TWEET({ query, limit }) {
   const n = await TweetAPI.get(
@@ -17,7 +16,7 @@ async function TWEET({ query, limit }) {
             })
           : ""
         : " ";
-      console.log("include map: ", includeMap);
+      // console.log("include map: ", includeMap);
 
       // checking by the media_keys
       // if have the same keys then append

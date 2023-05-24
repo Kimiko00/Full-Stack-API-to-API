@@ -2,6 +2,9 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../models/user.model");
 
+// @desc      User Register
+// @Route     POST /user/register
+// @Access    Public
 const createUser = async (req, res) => {
   try {
     const { username, email, password, role } = req.body;
@@ -22,6 +25,9 @@ const createUser = async (req, res) => {
   }
 };
 
+// @desc      User Sign In
+// @Route     POST /user/sign-in
+// @Access    Public
 const userSignIn = async (req, res) => {
   try {
     var { username, email } = req.body;
@@ -34,7 +40,7 @@ const userSignIn = async (req, res) => {
       userId: user._id,
     };
 
-    const generateToken = jwt.sign(data, secretKey, { expiresIn: "30s" });
+    const generateToken = jwt.sign(data, secretKey, { expiresIn: "86400s" });
 
     res.status(200).send({
       username: user.username,
@@ -48,6 +54,9 @@ const userSignIn = async (req, res) => {
   }
 };
 
+// @desc      User Profile
+// @Route     POST /user/profile
+// @Access    Private
 const getDataUser = async (req, res) => {
   const token = req.headers.token;
   const decryptToken = jwt.verify(token, process.env.JWT_SECRET);
@@ -61,6 +70,10 @@ const getDataUser = async (req, res) => {
   });
 };
 
+// @desc      All User Profile
+// @Route     POST /user/user-list
+// @Access    Private
+// @Role      admin
 const getAllDataUser = async (req, res) => {
   const token = req.headers.token;
   await jwt.verify(token, process.env.JWT_SECRET);

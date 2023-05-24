@@ -6,7 +6,7 @@ const bearerToken = process.env.TWITTER_BEARER_TOKEN;
 // console.log("process: ", process.env);
 
 const TweetAPI = axios.create({
-  baseURL: "https://api.twitter.com",
+  baseURL: process.env.TWITTER_ROUTE,
   headers: {
     Authorization: `Bearer ${bearerToken}`,
   },

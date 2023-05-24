@@ -3,7 +3,7 @@ const x = require("../controllers/nist.controller.axios");
 
 const router = express.Router();
 
-router.get("/data", async (req, res) => {
+router.get("/nist", async (req, res) => {
   const query = req.query;
   const limit = req.limit;
   const page = req.page;

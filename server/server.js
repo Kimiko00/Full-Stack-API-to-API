@@ -4,6 +4,9 @@ const User = require("./routes/user.routes");
 const data = require("./routes/nist.routes");
 const stack = require("./routes/stack.routes");
 const tweet = require("./routes/tweet.routes");
+const sodan = require("./routes/sodan.routes");
+const news = require("./routes/news.routes");
+const tweetUser = require("./routes/tweetUser.routes");
 const verifySignIn = require("./middleware/auth.middleware");
 
 require("dotenv").config();
@@ -22,15 +25,17 @@ app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
-  res.send("hello world!");
-});
+app.use("/data", data);
 
-app.use("/nist", verifySignIn, data);
+app.use("/data", stack);
 
-app.use("/stack", verifySignIn, stack);
+app.use("/data", tweet);
 
-app.use("/tweet", verifySignIn, tweet);
+app.use("/data", sodan);
+
+app.use("/data", tweetUser);
+
+app.use("/data", news);
 
 app.use("/user", User);
 

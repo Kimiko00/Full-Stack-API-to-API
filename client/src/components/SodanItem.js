@@ -1,7 +1,7 @@
 import React from "react";
 import { AiOutlineLink } from "react-icons/ai";
 
-export default function NistItem({ user }) {
+export default function SodanItem({ user }) {
   const timestamp = Date.now();
 
   return (
@@ -15,7 +15,7 @@ export default function NistItem({ user }) {
             src="https://static.vecteezy.com/system/resources/previews/000/497/896/original/code-optimization-icon-design-vector.jpg"
           />
           <div className="flex-col mx-2">
-            <div className="text-lg font-mono font-bold">{user.id}</div>
+            <div className="text-lg font-mono font-bold">{user.asn}</div>
             <div className="flex flex-row mb-2">
               <div className="p-1 mr-2 text-sm bg-black rounded-md text-white font-mono font-extralight">
                 {new Intl.DateTimeFormat("en-US", {
@@ -25,10 +25,10 @@ export default function NistItem({ user }) {
                 }).format(timestamp)}
               </div>
               <div className="p-1 mr-2 text-sm font-mono font-extralight bg-blue-400 rounded-full">
-                {user.vulnStatus}
+                {user.hash}
               </div>
               <div className="p-1 text-sm font-extralight font-mono text-black bg-red-300 rounded-full">
-                {user.metrics.cvssMetricV2[0].baseSeverity}
+                {user.hash}
               </div>
             </div>
           </div>
@@ -36,31 +36,11 @@ export default function NistItem({ user }) {
             <AiOutlineLink
               className="text-xl text-gray-500 cursor-pointer hover:text-blue-400  hover:animate-spin"
               /*guarding untuk kalau ada url ke 3 kalau tidak pakai url ke 1*/
-              onClick={() => window.open(user.references[0].url)}
+              onClick={() => window.open(user.http.host)}
             />
           </div>
         </div>
-        <div className="flex text-justify pr-2">
-          {user.descriptions[0].value}
-        </div>
-        <div className="flex flex-row pt-2 justify-between">
-          <p className="p-1 font-mono font-semibold bg-blue-50 rounded-full">
-            open:{" "}
-            {new Date(user.published).toLocaleDateString(undefined, {
-              year: "numeric",
-              month: "2-digit",
-              day: "2-digit",
-            })}
-          </p>
-          <p className="p-1 font-mono font-semibold bg-red-100 rounded-full">
-            modified:{" "}
-            {new Date(user.lastModified).toLocaleDateString(undefined, {
-              year: "numeric",
-              month: "2-digit",
-              day: "2-digit",
-            })}
-          </p>
-        </div>
+        <div className="flex text-justify pr-2">{user.asn}</div>
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ const router = express.Router();
 
 const m = require("../controllers/stack.controller");
 
-router.get("/data", async (req, res) => {
+router.get("/stack", async (req, res) => {
   const query = req.query;
 
   const stackData = await m(query);
