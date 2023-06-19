@@ -11,6 +11,7 @@ const {
   validateUserRoles,
 } = require("../middleware/verifyUser.middleware");
 const verifySignIn = require("../middleware/auth.middleware");
+
 const router = express.Router();
 
 // @desc      User Register
@@ -27,7 +28,9 @@ router.post("/sign-in", validateUserSignIn, userSignIn);
 // @Route     POST /user/profile
 // @Access    Private
 // @Role      User
-router.get("/profile", verifySignIn, validateUserRoles("user"), getDataUser);
+router
+  .route("/profile")
+  .get(verifySignIn, validateUserRoles("user"), getDataUser);
 
 // update current log-in user
 router.get("/update-user");

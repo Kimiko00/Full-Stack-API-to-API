@@ -2,10 +2,16 @@ const TweetAPI = require("../api/twitter.api");
 
 // NEED TO HANDLE ERROR IF THE USER ADD # SPACE OR EVERY UNIQ PARAM IN QUERY
 // RETURN ERROR "PLEASE DON'T INSERT ANY UNIQ CHAR IN YOUR INPUT"
+// add rexgex function or validation for the inputed query
 async function TWEET({ query }) {
-  // change the inputed query into hastage search
+  // change the inputed search query into hashtag
   const hashtag = encodeURIComponent(`#${query}`);
+  console.log("inputed: ", query);
 
+  // var test = `/2/tweets/search/recent?query=${hashtag}&max_results=15&tweet.fields=author_id,created_at,entities&expansions=attachments.media_keys&media.fields=url`;
+  // // // /2/tweets/search/recent?query=%23cybersecurity&max_results=15&tweet.fields=author_id,created_at,entities&expansions=attachments.media_keys&media.fields=url
+  // // // /2/tweets/search/recent?query=%23gundam&max_results=10&tweet.fields=author_id&expansions=attachments.media_keys&media.fields=url
+  // console.log("url: ", test);
   const tweetPost = await TweetAPI.get(
     `/2/tweets/search/recent?query=${hashtag}&max_results=15&tweet.fields=author_id,created_at,entities&expansions=attachments.media_keys&media.fields=url`
   ).then((res) => {
