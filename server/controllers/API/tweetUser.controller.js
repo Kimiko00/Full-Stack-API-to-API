@@ -1,4 +1,4 @@
-const TweetAPI = require("../api/twitter.api");
+const TweetAPI = require("../../api/twitter.api");
 
 async function TWEETUSER({ query }) {
   const userID = await TweetAPI.get(

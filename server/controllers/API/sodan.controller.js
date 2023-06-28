@@ -1,4 +1,4 @@
-const sodanApi = require("../api/sodan.api");
+const sodanApi = require("../../api/sodan.api");
 require("dotenv").config();
 
 async function SODAN({ query }) {

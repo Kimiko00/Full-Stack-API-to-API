@@ -1,4 +1,4 @@
-const TweetAPI = require("../api/twitter.api");
+const TweetAPI = require("../../api/twitter.api");
 
 // NEED TO HANDLE ERROR IF THE USER ADD # SPACE OR EVERY UNIQ PARAM IN QUERY
 // RETURN ERROR "PLEASE DON'T INSERT ANY UNIQ CHAR IN YOUR INPUT"

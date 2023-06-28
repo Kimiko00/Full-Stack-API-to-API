@@ -13,15 +13,17 @@ const validateUserSignUp = async (req, res, next) => {
     }
 
     if (username.trim() == "" || email.trim() == "" || password.trim() == "") {
-      return res.send({ msg: "please fill in the requirments field" });
+      return res
+        .status(400)
+        .send({ msg: "please fill in the requirments field" });
     }
 
     if (!validemail) {
-      return res.send({ msg: "email not accepted" });
+      return res.status(400).send({ msg: "email not accepted" });
     }
 
-    if (password.length < 3 && password.length >= 10) {
-      return res.send({ msg: "password at least 8 character" });
+    if (password.length <= 8 && password.length >= 20) {
+      return res.status(400).send({ msg: "password at least 8 character" });
     }
 
     // if (confpassword !== password) {

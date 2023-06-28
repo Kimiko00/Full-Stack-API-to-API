@@ -1,4 +1,4 @@
-const VuldbAPI = require("../api/vuldb.api");
+const VuldbAPI = require("../../api/vuldb.api");
 require("dotenv").config();
 
 async function VULDB() {

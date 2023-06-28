@@ -1,5 +1,5 @@
 const express = require("express");
-const NEWS = require("../controllers/mandiant.controller");
+const NEWS = require("../controllers/NEWS/mandiant.controller");
 
 const router = express.Router();
 

@@ -1,4 +1,4 @@
-const stackApi = require("../api/stack.api");
+const stackApi = require("../../api/stack.api");
 
 async function STACK({ query }) {
   const stackData = await stackApi
