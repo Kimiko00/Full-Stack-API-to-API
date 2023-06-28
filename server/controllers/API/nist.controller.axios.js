@@ -1,4 +1,4 @@
-const nistApi = require("../api/nist.api");
+const nistApi = require("../../api/nist.api");
 
 async function NIST({ query, limit, page }) {
   const nistData = await nistApi
